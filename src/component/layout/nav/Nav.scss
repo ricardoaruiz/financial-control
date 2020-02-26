@@ -1,0 +1,33 @@
+@import '../../../assets/style/variables';
+
+.nav {
+    grid-area: nav;
+    background-color: $nav-bgcolor;
+    box-shadow: 2px 4px 6px rgba(0, 0, 0, .5);
+
+    > div {
+        padding: 10px 0 5px 8px;
+        font-family: 'Roboto-Bold';
+        color: $white;
+        border-top: 1px solid $nav-item-hover;
+    }
+
+    ul {  
+        list-style: none;
+        padding: 0;
+
+        li {
+            padding-left: 15px;
+            a {
+                display: block;
+                padding: 8px 0;
+                color: $white;
+                text-decoration: none;
+                font-size: .9em;
+            }
+            &:hover {
+                background-color: $nav-item-hover;
+            }
+        }
+    }
+}

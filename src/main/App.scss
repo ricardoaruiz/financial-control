@@ -1,0 +1,21 @@
+@import '../assets//style//variables';
+
+.app {
+  display: grid;
+  
+  grid-template-columns: 
+    $logo-width 
+    1fr;
+
+  grid-template-rows: 
+    $logo-height 
+    1fr 
+    $footer-heigth;
+
+  grid-template-areas: 
+    "logo content-header"
+    "nav content-body"
+    "nav footer";
+
+  height: 100vh;
+}

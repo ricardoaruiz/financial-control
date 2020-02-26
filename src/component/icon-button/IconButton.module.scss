@@ -1,0 +1,17 @@
+@import '../../assets/style/variables';
+
+.BtnIcon {
+    border: none;
+    background: transparent;
+    font-size: 1.5em;
+    outline: none;
+    padding: 2px 4px;
+    border-radius: 4px;
+    width: 32px;
+
+    &:hover {
+        background: $nav-item-hover;
+        color: $white;
+        cursor: pointer;
+    }
+}

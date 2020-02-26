@@ -1,0 +1,40 @@
+@import '../../../../assets/style/variables';
+
+.content-header {
+    grid-area: content-header;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5px;
+
+    .page-title {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    
+        i {
+            min-width: 60px;
+            margin-right: 10px;
+            font-size: 3em;
+            text-align: center;
+        }
+
+        small {
+            margin-left: 10px;
+            color: $gray;
+        }
+    }
+
+    .page-action {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        align-self: flex-start;
+
+        .logged-user {
+            margin-right: 5px;
+            font-family: 'Roboto-Bold';
+        }
+    }
+}
+

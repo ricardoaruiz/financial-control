@@ -1,0 +1,17 @@
+@import '../../../assets/style/variables';
+
+.ExpenseForm {
+    margin-bottom: 20px;
+    border: 1px solid $light-gray;
+}
+
+.ExpenseFields {
+    display: grid;
+    grid-template-columns: repeat(2, 45%) 1fr;
+    align-items: start;
+    gap: 5px;
+}
+
+.ExpenseTable {
+    border: 1px solid $light-gray;   
+}

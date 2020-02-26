@@ -1,0 +1,15 @@
+@import '../../../../assets/style/variables';
+
+.ControlSelectContainer {
+    display: grid;
+
+    .ControlSelect {
+        padding: 4px;
+        border-radius: 4px;
+        border: 1px solid $gray;
+        font-family: 'Roboto-Regular';
+        font-size: 1.1em;
+        background-color: transparent;
+    }
+
+}

@@ -1,0 +1,58 @@
+@import '../../assets/style/variables';
+
+.Toasts {
+    display: grid;
+    gap: 10px;
+
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.Toast {
+    width: 200px;
+    border: none;
+    border-radius: 4px;
+    background: $white;
+    padding: 10px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, .4);
+    
+    &.show {
+        visibility: visible;
+        transition: all .8s;
+        transform: translate3d(0, 0, 0);
+        opacity: 1;
+    }
+
+    &.hide {
+        transition: all .8s;
+        transform: translate3d(20px, 0, 0);
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    &.success {
+        background: $green;
+    }
+
+    &.error {
+        background: $red;
+    }
+
+    &.warn {
+        background: $orange;
+    }
+
+    .title {
+        font-size: .7rem;
+        color: $white;
+        margin-bottom: 10px;
+    }
+
+    .message {
+        font-size: .8rem;
+        font-weight: bold;
+        color: $white;
+    }
+
+}

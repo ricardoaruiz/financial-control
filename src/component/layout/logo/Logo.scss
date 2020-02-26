@@ -1,0 +1,23 @@
+@import '../../../assets/style/variables';
+
+.logo {
+    grid-area: logo;
+
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    background-color: $logo-bgcolor;
+    text-decoration: none;
+    
+    i {
+        font-size: 3.5rem;
+        margin-right: 10px;
+        text-align: center;
+        color: $logo-color;
+    }
+
+    p {
+        color: $white;
+        font-size: 1.3em;
+    }
+}

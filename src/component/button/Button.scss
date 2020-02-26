@@ -1,0 +1,44 @@
+@import '../../assets/style/variables';
+
+.btn {
+    border: 0;
+    outline: none;
+    padding: 10px;
+    font-family: 'Roboto-Regular';
+    font-weight: bold;
+    border-radius: 4px;
+    color: $white;
+
+    &:hover {
+        cursor: pointer;
+    }
+    &:disabled {
+        cursor: not-allowed;
+        background: $gray;
+
+        &:hover {
+            background: $gray;
+        }
+    }
+}
+.primary {
+    background: $green;
+
+    &:hover {
+        background: darken($green, 4%);
+    }
+}
+.default {
+    background: $dark-gray;
+
+    &:hover {
+        background: darken($dark-gray, 4%);
+    }
+}
+.danger {
+    background: $red;
+
+    &:hover {
+        background: darken($red, 4%);
+    }
+}

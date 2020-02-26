@@ -1,0 +1,19 @@
+$logo-width: 250px;
+$logo-height: 80px;
+$footer-heigth: 60px;
+
+$white: #fff;
+$gray: #a0a0a0;
+$light-gray: lighten($gray, 20%);
+$dark-gray: darken($gray, 20%);
+$black: #333;
+$green: #0f4d27;
+$red: #e20c0c;
+$orange: #e2900c;
+
+$logo-color: $green;
+$logo-bgcolor: $black;
+$nav-bgcolor: lighten($logo-bgcolor, 2%);
+$nav-item-hover: darken($nav-bgcolor, 5%);
+$footer-bgcolor: $light-gray;
+$overlay: #dddddd;

@@ -1,0 +1,11 @@
+@import '../../../assets/style/variables';
+
+.content-body {
+    grid-area: content-body;
+    background-color: $white;
+    
+    .content {
+        margin: 5px;
+        box-shadow: 0px 2px 4px rgba(0, 0, 0, .2);
+    }
+}
