@@ -8,7 +8,7 @@ const IconButton = props => {
     const { icon, tooltip, onClick } = props;
 
     return (
-        <button className={styles.BtnIcon} onClick={onClick} title={tooltip}>
+        <button className={styles.BtnIcon} onClick={onClick} title={tooltip} {...props} >
             <i className={`fa fa-${icon}`}></i>
         </button>
     );

@@ -9,9 +9,24 @@
     border-radius: 4px;
     width: 32px;
 
+    &:disabled {
+        background: transparent;
+        cursor: not-allowed;
+
+        &:hover {
+            background: transparent;
+            cursor: not-allowed;
+        }
+    }
+
     &:hover {
         background: $nav-item-hover;
         color: $white;
         cursor: pointer;
+
+        &:disabled {
+            color: $gray;
+        }
     }
+
 }

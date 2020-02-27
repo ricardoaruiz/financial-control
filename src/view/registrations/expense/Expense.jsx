@@ -14,11 +14,13 @@ import { ToastService } from '../../../component/toast';
 import ExpenseService from '../../../shared/service/ExpenseService';
 import styles from './Expense.module.scss';
 
-const INITIAL_STATE_EXPENSE = {
+const INITIAL_EXPENSE_FILTER = {
     id: undefined,
     name: '',
     description: '',
-    active: true
+    active: true,
+    currentPage: 1,
+    regsPerPage: 10,
 }
 
 const YES_NO_VALUES = [
@@ -32,22 +34,29 @@ const idConfirmationRemoveExpense = "expense-type-remove-dialog";
 const Expense = (props) => {
 
     const { history } = props;
-    const [filter, setFilter] = useState(INITIAL_STATE_EXPENSE)
+    const [filter, setFilter] = useState(INITIAL_EXPENSE_FILTER)
     const [expenses, setExpenses] = useState([]);
-    const [expenseToRemove, setExpenseToRemove] = useState(INITIAL_STATE_EXPENSE);
+    const [expenseToRemove, setExpenseToRemove] = useState(INITIAL_EXPENSE_FILTER);
+    const [totalPages, setTotalPages] = useState(0);
 
     useEffect(() => {
         find(filter);
     }, [filter])
 
     const confirmSearch = values => {
-        setFilter(values);
+        const newFilter = { ...filter, ...values }
+        console.log('values', values, 'newFilter', newFilter)
+        setFilter(newFilter);
     }
 
     const find = filter => {
         SpinnerService.on();
+
         ExpenseService.search(filter)
-            .then(data => setExpenses(data))
+            .then(result => {
+                setTotalPages(result.pagination.totalPages);                                
+                setExpenses(result.data)
+            } )
             .catch(() => ToastService.error({title:'Informação', message:'Erro ao listar os tipo de despesa. Tente novamente.'}))
             .finally(() => SpinnerService.off());
     }
@@ -70,7 +79,7 @@ const Expense = (props) => {
         ExpenseService.delete(expenseToRemove.id)
             .then(() => {
                 find(filter);
-                setExpenseToRemove(INITIAL_STATE_EXPENSE);
+                setExpenseToRemove(INITIAL_EXPENSE_FILTER);
                 ToastService.success({title:'Informação', message:'Tipo de despesa removida com sucesso.'})
             })
             .catch(() => {
@@ -80,7 +89,7 @@ const Expense = (props) => {
     }
 
     const cancelRemove = () => {
-        setExpenseToRemove(INITIAL_STATE_EXPENSE);
+        setExpenseToRemove(INITIAL_EXPENSE_FILTER);
     }
 
     const customButtons = () => (
@@ -132,6 +141,11 @@ const Expense = (props) => {
                         {label: 'Ativo', width: '100px', alignment: 'center'},
                         {label: 'Ações', width: '100px', alignment: 'center'},
                     ]}
+                    paginationAction={confirmSearch}
+                    currentPage={filter.currentPage}
+                    regsPerPage={filter.regsPerPage}
+                    regsPerPageList={[5,10,15,20]}
+                    totalPages={totalPages}
                 >
                     <TableColumn column="name"/>
                     <TableColumn column="description" />

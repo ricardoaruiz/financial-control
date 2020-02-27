@@ -2,10 +2,11 @@ import PropTypes from 'prop-types';
 import React from 'react';
 
 import styles from './Table.module.scss';
+import { IconButton } from '../icon-button';
 
 const Table = (props) => {
 
-    const { title, columns, rows } = props;
+    const { title, columns, rows, currentPage, regsPerPage, regsPerPageList, totalPages, paginationAction } = props;
 
     const builtTitle = () => {
         return title ? (<tr><th colSpan={columns.length}>{title}</th></tr>) : null;
@@ -55,6 +56,65 @@ const Table = (props) => {
                         })
                     }
                 </tbody>
+                <tfoot>
+                    {
+                        !currentPage
+                            ? null
+                            : <tr>
+                                <td colSpan={columns.length}>
+                                    <div className={styles.TablePagination}>
+                                        <div className={styles.PaginationPages}>
+                                            {
+                                                !regsPerPageList
+                                                    ? null
+                                                    : 
+                                                    <div>
+                                                        Registros por página:
+                                                        <select onChange={(event) => paginationAction({regsPerPage: event.target.value})}>
+                                                            {
+                                                                regsPerPageList.map(reg =>  <option 
+                                                                                                key={reg} 
+                                                                                                value={reg} 
+                                                                                                selected={reg == regsPerPage}
+                                                                                            >
+                                                                                                {reg}
+                                                                                            </option>)
+                                                            }
+                                                        </select>
+                                                    </div>
+                                            }
+                                        </div>
+                                        <div className={styles.PaginationControls}>
+                                            <IconButton 
+                                                icon="fast-backward" 
+                                                disabled={currentPage == 1} 
+                                                onClick={() => paginationAction({currentPage: 1})} 
+                                            />
+                                            <IconButton 
+                                                icon="step-backward" 
+                                                disabled={currentPage == 1} 
+                                                onClick={() => paginationAction({currentPage : parseInt(currentPage)-1})}
+                                            />
+
+                                            <span>página {currentPage} de {totalPages}</span>
+                                            
+                                            <IconButton 
+                                                icon="step-forward" 
+                                                disabled={currentPage == totalPages} 
+                                                onClick={() => paginationAction({currentPage: parseInt(currentPage)+1})}
+                                            />
+
+                                            <IconButton 
+                                                icon="fast-forward" 
+                                                disabled={currentPage == totalPages} 
+                                                onClick={() => paginationAction({currentPage: totalPages})}
+                                            />
+                                        </div>                                        
+                                    </div>
+                                </td>
+                             </tr>
+                    }
+                </tfoot>
             </table>
     );
 }
@@ -64,6 +124,15 @@ Table.propTypes = {
     title: PropTypes.string,
     columns: PropTypes.arrayOf(PropTypes.object).isRequired,
     rows: PropTypes.array,
+    currentPage: PropTypes.number,
+    regsPerPage: PropTypes.number,
+    regsPerPageList: PropTypes.arrayOf(PropTypes.number),
+    totalPages: PropTypes.number,
+    paginationAction: PropTypes.func,
+}
+
+Table.defaultProps = {
+    currentPage: 0,
 }
 
 export default Table;
