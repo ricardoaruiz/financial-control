@@ -2,6 +2,7 @@ import './Footer.scss';
 
 import PropTypes from 'prop-types';
 import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { If } from '../../../shared';
 
@@ -13,7 +14,7 @@ const Footer = props => {
         <If test={isShow}>
             <footer className="footer">
                 <h4>Controle Financeiro</h4>
-                <i className='fa fa-money' />
+                <span><FontAwesomeIcon icon={['fas', 'hand-holding-usd']} /></span>
             </footer>
         </If>
     );

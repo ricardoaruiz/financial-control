@@ -5,6 +5,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
 import { If } from '../../../../shared';
 import { logout } from '../../../../shared/redux/actions';
 import IconButton from '../../../icon-button/IconButton';
@@ -16,7 +18,9 @@ const ContentHeader = (props) => {
     return (
         <section className="content-header">
             <div className="page-title">
-                <i className={`fa fa-${image}`} />
+                <span>
+                    <FontAwesomeIcon icon={image}/>
+                </span>
                 <h2>{title}</h2>
                 
                 <If test={subtitle}>
@@ -25,15 +29,15 @@ const ContentHeader = (props) => {
             </div>
             <div className="page-action">
                 <div className="logged-user">Ricardo Ruiz</div>
-                <IconButton icon="cog" tooltip="Configurações" />
-                <IconButton icon="sign-out" onClick={logout} tooltip="Sair" />
+                <IconButton icon={['fas', 'cog']} tooltip="Configurações" />
+                <IconButton icon={['fas', 'sign-out-alt']} onClick={logout} tooltip="Sair" />
             </div>
         </section>
     );
 }
 
 ContentHeader.propTypes = {
-    image: PropTypes.string,
+    image: PropTypes.oneOfType(PropTypes.string, PropTypes.array),
     title: PropTypes.string.isRequired,
     subtitle: PropTypes.string,
     logout: PropTypes.func.isRequired

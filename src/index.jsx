@@ -1,15 +1,20 @@
 import './index.scss';
 import 'font-awesome/css/font-awesome.css';
 
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { fab } from '@fortawesome/free-brands-svg-icons';
+import { fas } from '@fortawesome/free-solid-svg-icons';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 
 import { startApiServer } from './backend/ApiServer';
-import App from './main/App';
 import Spinner from './component/spinner';
-import { store } from './shared/redux';
 import { Toast } from './component/toast';
+import App from './main/App';
+import { store } from './shared/redux';
+
+library.add(fab, fas)
 
 if (process.env.NODE_ENV === "development") {
     startApiServer();

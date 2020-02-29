@@ -4,7 +4,7 @@ import { Content } from '../../../component/layout';
 
 const RevenewReport = () => {
     return (
-        <Content image="clipboard" title="Receitas" subtitle="Relatório">
+        <Content image={['fas', 'clipboard']} title="Receitas" subtitle="Relatório">
             RevenewReport
         </Content>
     );

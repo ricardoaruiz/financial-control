@@ -18,7 +18,7 @@ const INITIAL_EXPENSE_FILTER = {
     id: undefined,
     name: '',
     description: '',
-    active: true,
+    active: '',
     currentPage: 1,
     regsPerPage: 10,
 }
@@ -102,7 +102,7 @@ const Expense = (props) => {
     );    
 
     return (
-        <Content image="dollar" title="Tipos de Despesas" subtitle="Cadastro - Listagem">
+        <Content image={['fas', 'money-bill-wave']} title="Tipos de Despesas" subtitle="Cadastro - Listagem">
             <div className={styles.ExpenseForm}>
                 <Form 
                     initialData={filter} 
@@ -151,8 +151,8 @@ const Expense = (props) => {
                     <TableColumn column="description" />
                     <TableColumn column="active" booleanTranslate="Sim|Não" alignment="center"/>
                     <TableColumn actions={[edit, openRemoveExpenseConfirmDialog]} alignment="center">
-                        <IconButton icon="pencil" />
-                        <IconButton icon="trash" />
+                        <IconButton icon={['fas', 'pencil-alt']} />
+                        <IconButton icon={['fas', 'trash-alt']} />
                     </TableColumn>
                 </Table>
             </div>

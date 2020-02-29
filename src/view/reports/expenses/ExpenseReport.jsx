@@ -4,7 +4,7 @@ import { Content } from '../../../component/layout';
 
 const ExpenseReport = () => {
     return (
-        <Content image="clipboard" title="Despesas" subtitle="Relatório">
+        <Content image={['fas', 'clipboard']} title="Despesas" subtitle="Relatório">
             ExpenseReport
         </Content>
     );

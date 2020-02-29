@@ -81,7 +81,7 @@ const ExpenseForm = (props) => {
     ); 
 
     return (
-        <Content image="dollar" title="Tipos de Despesas" subtitle="Cadastro - Novo">            
+        <Content image={['fas', 'money-bill-wave']} title="Tipos de Despesas" subtitle="Cadastro - Novo">            
             <div className={styles.ExpenseForm}>
                 <Form 
                     initialData={data} 

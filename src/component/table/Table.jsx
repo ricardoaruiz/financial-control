@@ -75,7 +75,7 @@ const Table = (props) => {
                                                                 regsPerPageList.map(reg =>  <option 
                                                                                                 key={reg} 
                                                                                                 value={reg} 
-                                                                                                selected={reg == regsPerPage}
+                                                                                                selected={reg === regsPerPage}
                                                                                             >
                                                                                                 {reg}
                                                                                             </option>)
@@ -86,27 +86,27 @@ const Table = (props) => {
                                         </div>
                                         <div className={styles.PaginationControls}>
                                             <IconButton 
-                                                icon="fast-backward" 
-                                                disabled={currentPage == 1} 
+                                                icon={['fas', 'angle-double-left']}
+                                                disabled={currentPage === 1} 
                                                 onClick={() => paginationAction({currentPage: 1})} 
                                             />
                                             <IconButton 
-                                                icon="step-backward" 
-                                                disabled={currentPage == 1} 
+                                                icon={['fas', 'angle-left']} 
+                                                disabled={currentPage === 1} 
                                                 onClick={() => paginationAction({currentPage : parseInt(currentPage)-1})}
                                             />
 
                                             <span>página {currentPage} de {totalPages}</span>
                                             
                                             <IconButton 
-                                                icon="step-forward" 
-                                                disabled={currentPage == totalPages} 
+                                                icon={['fas', 'angle-right']} 
+                                                disabled={currentPage === totalPages} 
                                                 onClick={() => paginationAction({currentPage: parseInt(currentPage)+1})}
                                             />
 
                                             <IconButton 
-                                                icon="fast-forward" 
-                                                disabled={currentPage == totalPages} 
+                                                icon={['fas','angle-double-right']} 
+                                                disabled={currentPage === totalPages} 
                                                 onClick={() => paginationAction({currentPage: totalPages})}
                                             />
                                         </div>                                        

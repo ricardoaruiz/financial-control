@@ -1,6 +1,8 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
 import styles from './IconButton.module.scss';
 
 const IconButton = props => {
@@ -9,13 +11,13 @@ const IconButton = props => {
 
     return (
         <button className={styles.BtnIcon} onClick={onClick} title={tooltip} {...props} >
-            <i className={`fa fa-${icon}`}></i>
+            <FontAwesomeIcon icon={icon} />
         </button>
     );
 }
  
 IconButton.propTypes = {
-    icon: PropTypes.string.isRequired,
+    icon: PropTypes.oneOfType(PropTypes.string, PropTypes.array).isRequired,
     tooltip: PropTypes.string,
     onClick: PropTypes.func
 }

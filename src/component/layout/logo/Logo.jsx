@@ -3,6 +3,7 @@ import './Logo.scss';
 import PropTypes from 'prop-types';
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const Logo = props => {
 
@@ -10,7 +11,7 @@ const Logo = props => {
 
     return (
         <Link to={path} className="logo">
-            <i className="fa fa-money"></i>
+            <span><FontAwesomeIcon icon={['fas', 'hand-holding-usd']} /></span>
             <p>Controle Financeiro</p>
         </Link>
     );

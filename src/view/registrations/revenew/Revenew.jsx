@@ -4,7 +4,7 @@ import { Content } from '../../../component/layout';
 
 const Revenew = () => {
     return (
-        <Content image="money" title="Tipos de Receitas" subtitle="Cadastro">
+        <Content image={['fas', 'money-check-alt']} title="Tipos de Receitas" subtitle="Cadastro">
             Revenew
         </Content>
     );
