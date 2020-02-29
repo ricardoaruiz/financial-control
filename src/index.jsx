@@ -14,6 +14,7 @@ import { Toast } from './component/toast';
 import App from './main/App';
 import { store } from './shared/redux';
 
+// Add icons on the library
 library.add(fab, fas)
 
 if (process.env.NODE_ENV === "development") {
