@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import React, { useEffect, useState } from 'react';
 import styles from './Spinner.module.scss';
 import SpinnerService, { GLOBAL_SPINNER } from './SpinnerService';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const Spinner = (props) => {
 
@@ -21,7 +22,7 @@ const Spinner = (props) => {
 
     return (
         <div className={`${styles.SpinnerOverlay} ${isShow ? styles.show : styles.hide}`}>
-            <i className="fa fa-spinner fa-pulse fa-3x" />
+            <span><FontAwesomeIcon icon={['fas', 'spinner']} pulse size="2x" /></span>
             <p>Carregando...</p>
         </div>
     );
