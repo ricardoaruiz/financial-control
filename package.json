@@ -13,7 +13,7 @@
     "axios": "^0.19.2",
     "eslint-plugin-react-hooks": "0.0.0-241c4467e",
     "font-awesome": "^4.7.0",
-    "node-sass": "^4.13.1",
+    "node-sass": "^7.0.0",
     "prop-types": "^15.7.2",
     "pubsub-js": "^1.8.0",
     "react": "^16.12.0",
